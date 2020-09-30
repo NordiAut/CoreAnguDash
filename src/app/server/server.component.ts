@@ -10,34 +10,45 @@ import { ServerMessage } from '../Shared/server-message';
 })
 export class ServerComponent implements OnInit {
 
+  color: string;
+  buttonText: string;
+  serverStatus: string;
+  isLoading: boolean;
+
   constructor() { }
 
-  // color: string;
-  // buttonText: string;
-  // serverStatus: string;
-  // isLoading: boolean;
 
    @Input() serverInput: Server;
   // @Output() serverAction = new EventEmitter<ServerMessage>();
 
   ngOnInit(): void {
-   // this.setServerStatus(this.serverInput.isOnline);
+    this.setServerStatus(this.serverInput.isOnline);
   }
 
+  toggleStatus(onlineStatus: boolean): void {
+    console.log(this.serverInput.name, ':', onlineStatus);
+    this.serverInput.isOnline = !this.serverInput.isOnline;
+    this.setServerStatus(!onlineStatus);
+  }
 
-  // setServerStatus(isOnline: boolean): void {
-  //   if (isOnline) {
-  //     this.serverInput.isOnline = true;
-  //     this.serverStatus = 'Online';
-  //     this.color = '#66BB6A',
-  //     this.buttonText = 'Shut Down';
-  //   } else {
-  //     this.serverInput.isOnline = false;
-  //     this.serverStatus = 'Offline';
-  //     this.color = '#FF6B6B';
-  //     this.buttonText = 'Start';
-  //   }
-  // }
+  setServerStatus(isOnline: boolean): void
+  {
+    if (isOnline)
+    {
+      this.serverInput.isOnline = true;
+      this.serverStatus = 'Online';
+      this.color = '#66BB6A',
+      this.buttonText = 'Shut Down';
+    }
+      else
+      {
+        this.serverInput.isOnline = false;
+        this.serverStatus = 'Offline';
+        this.color = '#FF6B6B';
+        this.buttonText = 'Start';
+      }
+  }
+
 
 
   // makeLoading(): void  {
