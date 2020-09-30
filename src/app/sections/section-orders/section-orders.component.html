@@ -2,9 +2,9 @@
     <h2>
       Latest Orders
     </h2>
-    <table class="table table-inverse table-hover">
+    <table class="table table-inverse">
       <thead class="thead-dark">
-        <tr>
+        <tr>          
           <th>ID</th>
           <th>Customer</th>
           <th>Amount</th>
@@ -12,8 +12,8 @@
           <th>Order Fulfilled</th>
           <th>Status</th>
         </tr>
-      </thead>
-      <tbody>        
+      </thead>      
+      <tbody class="tbody"> 
         <tr *ngFor="let order of orders">
           <td>{{ order.id }}</td>
           <td>{{ order.customer.name }}</td>
@@ -22,6 +22,6 @@
           <td>{{ order.fulfilled | date: 'short' }}</td>
           <td>Status</td>
         </tr>
-      </tbody>
-    </table>
+      </tbody>   
+    </table>    
 </div>

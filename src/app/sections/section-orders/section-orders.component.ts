@@ -10,17 +10,24 @@ import { Order } from 'src/app/Shared/order';
 })
 export class SectionOrdersComponent implements OnInit {
 
+  orders: Order[];
+
   constructor() { }
 
-  orders: Order[] = [
-    {id: 1, customer:
-      {id: 1, name: 'Test', state: 'CO', email: 'mainst@example.com'},
-   total: 230, placed: new Date(2017, 12, 1), fulfilled: new Date(2017, 12, 1)},
-  ];
+  // orders: Order[] = [
+  //   {id: 1, customer:
+  //     {id: 1, name: 'Test', state: 'CO', email: 'mainst@example.com'},
+  //  total: 230, placed: new Date(2017, 12, 1), fulfilled: new Date(2017, 12, 1)},
+  // ];
 
 
 
   ngOnInit(): void {
+    this.orders = [
+      {id: 1, customer:
+        {id: 1, name: 'Test', state: 'CO', email: 'mainst@example.com'},
+     total: 230, placed: new Date(2017, 12, 1), fulfilled: new Date(2017, 12, 1)},
+    ];
   }
 
 }
