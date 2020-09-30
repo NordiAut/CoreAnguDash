@@ -15,6 +15,8 @@
 }
 
 .name {
+    background-color: rgb(170, 192, 241);
+    width: 200px;
     padding: 5px;
     font-size: 0.7em;
     display: block;
@@ -22,7 +24,10 @@
     transition: 0.3;
 }
 
-.action {
+.action {        
+    
+    background-color: rgb(170, 193, 241);
+    width: 180px;
     display: block;
     font-size: 0.7em;
     margin-top: 12px;

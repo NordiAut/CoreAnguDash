@@ -27,6 +27,9 @@ export class SectionOrdersComponent implements OnInit {
       {id: 1, customer:
         {id: 1, name: 'Test', state: 'CO', email: 'mainst@example.com'},
      total: 230, placed: new Date(2017, 12, 1), fulfilled: new Date(2017, 12, 1)},
+     {id: 2, customer:
+      {id: 2, name: 'Test2', state: 'CO', email: 'mainst@example.com'},
+   total: 230, placed: new Date(2017, 12, 1), fulfilled: new Date(2017, 12, 1)},
     ];
   }
 
