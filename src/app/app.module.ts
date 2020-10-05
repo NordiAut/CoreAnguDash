@@ -15,6 +15,7 @@ import { SectionHealthComponent } from './sections/section-health/section-health
 import { SectionOrdersComponent } from './sections/section-orders/section-orders.component';
 import { SectionSalesComponent } from './sections/section-sales/section-sales.component';
 import { ServerComponent } from './server/server.component';
+import { PaginationComponent } from './pagination/pagination.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { ServerComponent } from './server/server.component';
     BarChartComponent,
     LineChartComponent,
     PieChartComponent,
-    ServerComponent
+    ServerComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,

@@ -33,4 +33,8 @@ export class SectionOrdersComponent implements OnInit {
     ];
   }
 
+  goToPrevious(): void {
+    console.log('Previous Button Clicked!');
+  }
+
 }
