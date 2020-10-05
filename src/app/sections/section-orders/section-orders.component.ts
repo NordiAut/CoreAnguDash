@@ -16,7 +16,7 @@ export class SectionOrdersComponent implements OnInit {
   // tslint:disable-next-line:variable-name
   constructor(private _salesData: SalesDataService) { }
 
-  orders: any;
+  orders: Order[];
   total = 0;
   page = 1;
   limit = 10;
@@ -32,24 +32,26 @@ export class SectionOrdersComponent implements OnInit {
   ngOnInit(): void {
     this.getOrders();
 
-    this.orders = [
-      {id: 1, customer:
-        {id: 1, name: 'Test', state: 'CO', email: 'mainst@example.com'},
-     total: 230, placed: new Date(2017, 12, 1), fulfilled: new Date(2017, 12, 1)},
-     {id: 2, customer:
-      {id: 2, name: 'Test2', state: 'CO', email: 'mainst@example.com'},
-   total: 230, placed: new Date(2017, 12, 1), fulfilled: new Date(2017, 12, 1)},
-    ];
+  //   this.orders = [
+  //     {id: 1, customer:
+  //       {id: 1, name: 'Test', state: 'CO', email: 'mainst@example.com'},
+  //    total: 230, placed: new Date(2017, 12, 1), fulfilled: new Date(2017, 12, 1)},
+  //    {id: 2, customer:
+  //     {id: 2, name: 'Test2', state: 'CO', email: 'mainst@example.com'},
+  //  total: 230, placed: new Date(2017, 12, 1), fulfilled: new Date(2017, 12, 1)},
+  //   ];
   }
 
   getOrders(): void {
     this._salesData.getOrders(this.page, this.limit)
       .subscribe(res => {
         console.log('Result from getOrders: ', res);
-        // tslint:disable-next-line:no-string-literal
-        this.orders = res['page']['data'];
-        // tslint:disable-next-line:no-string-literal
-        this.total = res['page'].total;
+        this.orders = res.page.data;
+        this.total = res.page.total;
+        // // tslint:disable-next-line:no-string-literal
+        // this.orders = res['page']['data'];
+        // // tslint:disable-next-line:no-string-literal
+        // this.total = res['page'].total;
         this.loading = false;
       });
     }
