@@ -23,11 +23,6 @@ export class SectionOrdersComponent implements OnInit {
   loading = false;
 
 
-  // orders: Order[] = [
-  //   {id: 1, customer:
-  //     {id: 1, name: 'Test', state: 'CO', email: 'mainst@example.com'},
-  //  total: 230, placed: new Date(2017, 12, 1), fulfilled: new Date(2017, 12, 1)},
-  // ];
 
   ngOnInit(): void {
     this.getOrders();
@@ -48,10 +43,6 @@ export class SectionOrdersComponent implements OnInit {
         console.log('Result from getOrders: ', res);
         this.orders = res.page.data;
         this.total = res.page.total;
-        // // tslint:disable-next-line:no-string-literal
-        // this.orders = res['page']['data'];
-        // // tslint:disable-next-line:no-string-literal
-        // this.total = res['page'].total;
         this.loading = false;
       });
     }
@@ -72,5 +63,4 @@ export class SectionOrdersComponent implements OnInit {
     this.page = n;
     this.getOrders();
   }
-
 }

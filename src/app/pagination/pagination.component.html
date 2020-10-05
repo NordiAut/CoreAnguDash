@@ -1,8 +1,18 @@
 <div>
+  <!-- <span>page: {{page}} /</span>
+    <span>Count: {{count}} / </span> 
+    <span>perPage: {{perPage}} /</span>
+    <span>pagesToShow: {{pagesToShow}} /</span>
+    <span>loading: {{loading}} /</span> --> 
+
     <span Class="page-counts">X through Y of Z orders</span>
-    <span Class="page-counts"> {{totalpages()}} total pages</span>
+    <span Class="page-counts"> {{totalpages()}} total pages </span>
     <button class="btn btn-small btn-info"(click)="onPrev()">Previous Page</button>
-    <b>...</b>
+    <button class="btn btn-small btn-info" *ngFor="let pageNum of getPages()" 
+    (click)="onPage(pageNum)" 
+    [ngClass]="{'active': pageNum === page, 'disabled': loading}"> 
+    {{ pageNum }} 
+</button>
     <button class="btn btn-small btn-info"(click)="onNext()">Next Page</button>
 </div>
 
