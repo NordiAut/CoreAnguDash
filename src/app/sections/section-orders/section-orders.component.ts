@@ -4,6 +4,8 @@ import { SalesDataService } from 'src/app/services/sales-data.service';
 import { Order } from 'src/app/Shared/order';
 
 
+
+
 @Component({
   selector: 'app-section-orders',
   templateUrl: './section-orders.component.html',
@@ -11,14 +13,15 @@ import { Order } from 'src/app/Shared/order';
 })
 export class SectionOrdersComponent implements OnInit {
 
+  // tslint:disable-next-line:variable-name
+  constructor(private _salesData: SalesDataService) { }
+
   orders: any;
   total = 0;
   page = 1;
   limit = 10;
   loading = false;
 
-  // tslint:disable-next-line:variable-name
-  constructor(private _salesData: SalesDataService) { }
 
   // orders: Order[] = [
   //   {id: 1, customer:
@@ -27,6 +30,8 @@ export class SectionOrdersComponent implements OnInit {
   // ];
 
   ngOnInit(): void {
+    this.getOrders();
+
     this.orders = [
       {id: 1, customer:
         {id: 1, name: 'Test', state: 'CO', email: 'mainst@example.com'},
@@ -50,11 +55,20 @@ export class SectionOrdersComponent implements OnInit {
     }
 
   goToPrevious(): void {
-    console.log('Previous Button Clicked!');
+    // console.log('Previous Button Clicked!');
+    this.page--;
+    this.getOrders();
   }
 
   goToNext(): void {
-    console.log('Next Button Clicked!');
+    // console.log('Next Button Clicked!');
+    this.page++;
+    this.getOrders();
+  }
+
+  goToPage(n: number): void{
+    this.page = n;
+    this.getOrders();
   }
 
 }

@@ -1,6 +1,7 @@
 import { appRoutes } from './../routes';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
 
 import { ChartsModule} from 'ng2-charts';
 
@@ -16,10 +17,10 @@ import { SectionOrdersComponent } from './sections/section-orders/section-orders
 import { SectionSalesComponent } from './sections/section-sales/section-sales.component';
 import { ServerComponent } from './server/server.component';
 import { PaginationComponent } from './pagination/pagination.component';
+
+// Services
 import { SalesDataService } from './services/sales-data.service';
 import { ServerService } from './services/server.service';
-import { HttpModule } from '@angular/http';
-
 
 @NgModule({
   declarations: [

@@ -5,7 +5,11 @@ import { ServerMessage } from '../shared/server-message';
 import { Server } from '../shared/server';
 import 'rxjs/add/operator/catch';
 
-@Injectable()
+@Injectable({
+  // we declare that this service should be created
+  // by the root application injector.
+  providedIn: 'root',
+})
 export class ServerService {
 
   // https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.4
