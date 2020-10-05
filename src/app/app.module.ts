@@ -16,6 +16,9 @@ import { SectionOrdersComponent } from './sections/section-orders/section-orders
 import { SectionSalesComponent } from './sections/section-sales/section-sales.component';
 import { ServerComponent } from './server/server.component';
 import { PaginationComponent } from './pagination/pagination.component';
+import { SalesDataService } from './services/sales-data.service';
+import { ServerService } from './services/server.service';
+import { HttpModule } from '@angular/http';
 
 
 @NgModule({
@@ -35,9 +38,13 @@ import { PaginationComponent } from './pagination/pagination.component';
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
-    ChartsModule
+    ChartsModule,
+    HttpModule
   ],
-  providers: [],
+  providers: [
+    SalesDataService,
+    ServerService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
