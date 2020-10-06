@@ -35,21 +35,36 @@ export class LineChartComponent implements OnInit {
   lineChartColors = LINE_CHART_COLORS;
 
   ngOnInit(): void {
+
     this._salesDataService.getOrders(1, 100).subscribe(res => {
-    this.allOrders = res.page.data;
+      this.allOrders = res.page.data;
 
-    this._salesDataService.getOrdersByCustomer(3).subscribe(cus => {
-    this.topCustomers = cus.map( x => x.name);
-    });
+      this._salesDataService.getOrdersByCustomer(3).subscribe(cus => {
+        this.topCustomers = cus.map(x => x.name);
+
+        const allChartData = this.topCustomers.reduce((result, i) => {
+          result.push(this.getChartData(this.allOrders, i));
+          return result;
+        }, []);
+
+      });
+
+
+    // this._salesDataService.getOrders(1, 100).subscribe(res => {
+    // this.allOrders = res.page.data;
+
     // this._salesDataService.getOrdersByCustomer(3).subscribe(cus => {
-    //   this.test = cus;
-    //   });
-    // console.log(this.test);
+    // this.topCustomers = cus.map( x => x.name);
+    // });
+    // // this._salesDataService.getOrdersByCustomer(3).subscribe(cus => {
+    // //   this.test = cus;
+    // //   });
+    // // console.log(this.test);
 
-    const allCharData = this.topCustomers.reduce((result, i) => {
-      result.push(this.getChartData(this.allOrders, i));
-      return result;
-      }, []);
+    // const allCharData = this.topCustomers.reduce((result, i) => {
+    //   result.push(this.getChartData(this.allOrders, i));
+    //   return result;
+    //   }, []);
     });
   }
 
