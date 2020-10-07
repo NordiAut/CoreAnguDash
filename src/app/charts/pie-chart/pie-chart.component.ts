@@ -31,7 +31,7 @@ export class PieChartComponent implements OnInit {
 
   ngOnInit(): void {
     this.parseChartData(this.inputData, this.limit);
-    console.log(this.inputData);
+    // console.log(this.inputData);
   }
 
   parseChartData( res: any, limit?: number): void{
